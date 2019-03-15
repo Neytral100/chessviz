@@ -32,14 +32,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 char interpret (int *x);
-int main () { int *board = calloc (64, sizeof(int));
+int main () {
+	int *board = calloc (64, sizeof(int));
 	int i;
 
 	for (i = 8; i <= 15; i++) {
 		*(board + i) = -1;
 	}
 
-	for (int i = 48; i <= 55; i++) {
+	for (i = 48; i <= 55; i++) {
 		*(board + i) = 1;
 	}
 
@@ -73,9 +74,9 @@ int main () { int *board = calloc (64, sizeof(int));
 			fprintf (pFileBoard, "\n");
 		}
 	}
-
-	for (char i = 'a'; i <= 'h' ; i++) {
-		fprintf(pFileBoard, "%c ", i);
+	char c;
+	for (c = 'a'; c <= 'h' ; c++) {
+		fprintf(pFileBoard, "%c ", c);
 	}
 	fprintf (pFileBoard, "\n");
 
