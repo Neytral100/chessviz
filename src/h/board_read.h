@@ -1,0 +1,1 @@
+struct coordinates * board_read ();

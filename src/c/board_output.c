@@ -26,43 +26,19 @@
 	7    1  1  1  1  1  1  1  1 
 
 	8    2  3  4  5  6  4  3  2 
-	
-
 */
+
 #include <stdio.h>
-#include <stdlib.h>
-char interpret (int *x);
-int main () {
-	int *board = calloc (64, sizeof(int));
-	int i;
+#include "../h/board_output.h"
 
-	for (i = 8; i <= 15; i++) {
-		*(board + i) = -1;
-	}
-
-	for (i = 48; i <= 55; i++) {
-		*(board + i) = 1;
-	}
-
-	*(board + 0) = -2;
-	*(board + 1) = -3;
-	*(board + 2) = -4;
-	*(board + 3) = -5;
-	*(board + 4) = -6;
-	*(board + 5) = -4;
-	*(board + 6) = -3;
-	*(board + 7) = -2;
-	*(board + 56) = 2;
-	*(board + 57) = 3;
-	*(board + 58) = 4;
-	*(board + 59) = 5;
-	*(board + 60) = 6;
-	*(board + 61) = 4;
-	*(board + 62) = 3;
-	*(board + 63) = 2;
-
+void board_output (int *board)
+{
 	FILE *pFileBoard = fopen ("../results/Сhessboard.txt", "w");
-
+	if (pFileBoard == NULL) {
+		printf ("Error with open the file");
+		return;
+	}
+	int i;
 	int j = 8;
 	for (i = 1; i <= 64; i++) {
 		fprintf(pFileBoard, "%c ", interpret (board + i - 1));
@@ -81,8 +57,6 @@ int main () {
 	fprintf (pFileBoard, "\n");
 
 	fclose(pFileBoard);
-
-	return 0;
 }
 
 char interpret (int *x)
